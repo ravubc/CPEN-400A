@@ -1,0 +1,189 @@
+<html>
+  <head>
+    <title>CPEN400A</title>
+	<link rel="stylesheet" type="text/css" href="CSS/style.css">
+  <!--<script src="http://ece.ubc.ca/~kbajaj/cpen400a/jquery.js" type="text/javascript"></script>
+  <script src="http://ece.ubc.ca/~kbajaj/cpen400a/test1.js" type="text/javascript"></script>-->
+
+  <!--<script src="http://ece.ubc.ca/~kbajaj/cpen400a/jquery.js" type="text/javascript"></script>
+  <script src="http://ece.ubc.ca/~kumseok/src/cpen400a/test2.js" type="text/javascript"></script>-->
+  <script src="http://ece.ubc.ca/~kbajaj/cpen400a/jquery.js" type="text/javascript"></script>
+<script src="http://ece.ubc.ca/~kumseok/src/cpen400a/test4.js" type="text/javascript"></script>
+	<script src="js/cart.js" type="text/javascript"></script>
+  </head>
+  <body onload="init()">
+
+    <div id="wrap">
+
+      <div id="header">
+        <div id="logo">
+          <!-- <p>Logo</p> -->
+          <img  src="images/logo.jpg" style="height:140px;width:160px"></img>
+        </div>
+
+        <div id="welcomeBanner">
+          <!-- <p>welcomeBanner</P> -->
+        <img src="images/welBanner.png" style="height:140px;width:600px"></img>
+
+        <!--<p id="showCart" onclick="showCart()">Show Cart</p>-->
+        <div id="showCart" onclick="showCart()">
+          <button id="cartTotal">Cart ($0)</button>
+        </div>
+      </div>
+              <!-- <p id="showCart">Show Cart</p> -->
+
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2 style="padding-left:50px"> Cart Items </h2>
+		      <hr>
+		      <table id="cartItems" style ="width:600px"> </table>
+		      <button id ="checkOut" onclick="checkOut()">Check Out</button>
+        </div>
+      </div>
+
+      <div id="mainContent">
+        <div id="navigationMenu">
+          <p class="menuButton">All Items</p>
+          <p class="menuButton">Books</p>
+          <p class="menuButton">Clothing</p>
+          <p class="menuButton">Tech</p>
+          <p class="menuButton">Gifts</p>
+          <p class="menuButton">Stationary</p>
+          <p class="menuButton">Supplies</p>
+        </div>
+
+        <div id="productList">
+
+          <ul>
+
+          <li class="product">
+            <div id="price_Box1" class="hideText"><span>$10</span></div>
+            <img class="cart" src="images/cart.png"/>
+            <div id="stock_Box1" class="hideOutOfStock"></div>
+				    <button id="add_Box1" class="addButton"  onclick="addToCart('Box1')">Add</button>
+				    <button id="remove_Box1" class="removeButton" onclick="removeFromCart('Box1')">Remove</button>
+            <img class="productImg" src="images/Box1_$10.png"/>
+            <figcaption class="caption">Box1</figcaption>
+          </li>
+
+          <li class="product">
+            <div id="price_Box2" class="hideText"><span>$5</span></div>
+            <img class="cart" src="images/cart.png"/>
+            <div id="stock_Box2" class="hideOutOfStock"></div>
+				    <button id="add_Box2" class="addButton" onclick="addToCart('Box2')">Add</button>
+				    <button id="remove_Box2" class="removeButton" onclick="removeFromCart('Box2')">Remove</button>
+            <img class="productImg" src="images/Box2_$5.png"/>
+            <figcaption class="caption">Box2</figcaption>
+          </li>
+
+          <li class="product">
+            <div id="price_Clothes1" class="hideText"><span>$20</span></div>
+            <img class="cart" src="images/cart.png"/>
+            <div id="stock_Clothes1" class="hideOutOfStock"></div>
+				    <button id="add_Clothes1" class="addButton" onclick="addToCart('Clothes1')">Add</button>
+				    <button id="remove_Clothes1" class="removeButton" onclick="removeFromCart('Clothes1')">Remove</button>
+            <img class="productImg" src="images/Clothes1_$20.png"/>
+            <figcaption class="caption">Clothes1</figcaption>
+          </li>
+
+          <li class="product">
+            <div id="price_Clothes2" class="hideText"><span>$30</span></div>
+            <img class="cart" src="images/cart.png"/>
+            <div id="stock_Clothes2" class="hideOutOfStock"></div>
+				    <button id="add_Clothes2" class="addButton" onclick="addToCart('Clothes2')">Add</button>
+				    <button id="remove_Clothes2" class="removeButton" onclick="removeFromCart('Clothes2')">Remove</button>
+            <img class="productImg" src="images/Clothes2_$30.png"/>
+            <figcaption class="caption">Clothes2</figcaption>
+          </li>
+
+          <li class="product">
+            <div id="price_Jeans" class="hideText"><span>$50</span></div>
+            <img class="cart" src="images/cart.png"/>
+            <div id="stock_Jeans" class="hideOutOfStock"></div>
+				    <button id="add_Jeans" class="addButton" onclick="addToCart('Jeans')">Add</button>
+				    <button id="remove_Jeans" class="removeButton" onclick="removeFromCart('Jeans')">Remove</button>
+            <img class="productImg" src="images/Jeans_$50.png"/>
+            <figcaption class="caption">Jeans</figcaption>
+          </li>
+
+          <li class="product">
+            <div id="price_Keyboard" class="hideText"><span>$20</span></div>
+            <img class="cart" src="images/cart.png"/>
+            <div id="stock_Keyboard" class="hideOutOfStock"></div>
+				    <button id="add_Keyboard" class="addButton" onclick="addToCart('Keyboard')">Add</button>
+				    <button id="remove_Keyboard" class="removeButton" onclick="removeFromCart('Keyboard')">Remove</button>
+            <img class="productImg" src="images/Keyboard_$20.png"/>
+            <figcaption class="caption">Keyboard</figcaption>
+          </li>
+
+          <li class="product">
+            <div id="price_KeyboardCombo" class="hideText"><span>$40</span></div>
+            <img class="cart" src="images/cart.png"/>
+            <div id="stock_KeyboardCombo" class="hideOutOfStock"></div>
+				    <button id="add_KeyboardCombo" class="addButton" onclick="addToCart('KeyboardCombo')">Add</button>
+				    <button id="remove_KeyboardCombo" class="removeButton" onclick="removeFromCart('KeyboardCombo')">Remove</button>
+            <img class="productImg" src="images/KeyboardCombo_$40.png"/>
+            <figcaption class="caption">KeyboardCombo</figcaption>
+          </li>
+
+          <li class="product">
+            <div id="price_Mice" class="hideText"><span>$20</span></div>
+            <img class="cart" src="images/cart.png"/>
+            <div id="stock_Mice" class="hideOutOfStock"></div>
+				    <button id="add_Mice" class="addButton" onclick="addToCart('Mice')">Add</button>
+				    <button id="remove_Mice" class="removeButton" onclick="removeFromCart('Mice')">Remove</button>
+            <img class="productImg" src="images/Mice_$20.png"/>
+            <figcaption class="caption">Mice</figcaption>
+          </li>
+
+          <li class="product">
+            <div id="price_PC1" class="hideText"><span>$350</span></div>
+            <img class="cart" src="images/cart.png"/>
+            <div id="stock_PC1" class="hideOutOfStock"></div>
+				    <button id="add_PC1" class="addButton" onclick="addToCart('PC1')">Add</button>
+				    <button id="remove_PC1" class="removeButton" onclick="removeFromCart('PC1')">Remove</button>
+            <img class="productImg" src="images/PC1_$350.png"/>
+            <figcaption class="caption">PC1</figcaption>
+          </li>
+
+          <li class="product">
+            <div id="price_PC2" class="hideText"><span>$400</span></div>
+            <img class="cart" src="images/cart.png"/>
+            <div id="stock_PC2" class="hideOutOfStock"></div>
+				    <button id="add_PC2" class="addButton" onclick="addToCart('PC2')">Add</button>
+				    <button id="remove_PC2" class="removeButton" onclick="removeFromCart('PC2')">Remove</button>
+            <img class="productImg" src="images/PC2_$400.png"/>
+            <figcaption class="caption">PC2</figcaption>
+          </li>
+
+          <li class="product">
+            <div id="price_PC3" class="hideText"><span>$300</span></div>
+            <img class="cart" src="images/cart.png"/>
+            <div id="stock_PC3" class="hideOutOfStock"></div>
+				    <button id="add_PC3" class="addButton" onclick="addToCart('PC3')">Add</button>
+				    <button id="remove_PC3" class="removeButton" onclick="removeFromCart('PC3')">Remove</button>
+            <img class="productImg" src="images/PC3_$300.png"/>
+            <figcaption class="caption">PC3</figcaption>
+          </li>
+
+          <li class="product">
+            <div id="price_Tent" class="hideText"><span>$100</span></div>
+            <img class="cart" src="images/cart.png"/>
+            <div id="stock_Tent" class="hideOutOfStock"></div>
+				    <button id="add_Tent" class="addButton" onclick="addToCart('Tent')">Add</button>
+				    <button id="remove_Tent" class="removeButton" onclick="removeFromCart('Tent')">Remove</button>
+            <img class="productImg" src="images/Tent_$100.png"/>
+            <figcaption class="caption">Tent</figcaption>
+          </li>
+
+        </ul>
+        </div>
+      </div>
+
+      <div id="footer"><span id="contactInfo">Contact Information </span><span id="inactiveTimeDisplay"></span>
+      </div>
+     </div>
+
+  </body>
+</html>
